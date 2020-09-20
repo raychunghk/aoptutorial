@@ -1,6 +1,7 @@
 package com.ray.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
@@ -11,16 +12,26 @@ public class AOPExpressions {
     public void setter() {
 
     }
+
     @Pointcut("execution(* com.ray.dao.*.get*(..))")
     public void getter() {
 
     }
-    @Pointcut("execution(* com.ray.dao.*.*(..))")
-    public void allmethod() {
 
+    @Pointcut("execution(* com.ray.dao.*.*(..))")
+    public void alldaomethod() {
+        System.out.println("==>Step 1 @point cut alldaomethod()");
     }
 
-    @Pointcut("allmethod() && !(getter() || setter())")
+    @Before("alldaomethod()")
+    public void beforeAllMethodLogging(){
+        System.out.println("==>Step 2 before all method? beforeAllMethodLogging");
+    }
+    @Before("alldaomethod()")
+    public void beforeAllMethodAPIANALYST(){
+        System.out.println("==>Step 2 before all method? beforeAllMethodAPIANALYST");
+    }
+    @Pointcut("alldaomethod() && !(getter() || setter())")
     public void AllActionNotGetterandSetter() {
         //  System.out.println("===>>All action but not getter and setter");
     }

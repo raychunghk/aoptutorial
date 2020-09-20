@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component()
 public class MemberDao {
-    public String AddSSSSS(){
+    public String AddAccountSSS(){
         System.out.println(getClass()+": in Accountdao ");
         return "hello:";
     }

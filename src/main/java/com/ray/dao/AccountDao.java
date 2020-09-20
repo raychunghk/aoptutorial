@@ -37,7 +37,10 @@ public class AccountDao {
     public void AddAccount() {
         System.out.println(getClass() + ": in Accountdao ");
     }
-
+    public void AddAccount(Account account) {
+     //   account.setLevel(String.valueOf(isVIP));
+        System.out.println(getClass() + ": in Accountdao with account parm only, account.name:"+account.getName());
+    }
     public void AddAccount(Account account, boolean isVIP) {
         account.setLevel(String.valueOf(isVIP));
         System.out.println(getClass() + ": in Accountdao with account parm, and also vip param");

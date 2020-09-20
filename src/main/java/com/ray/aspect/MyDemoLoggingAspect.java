@@ -49,7 +49,7 @@ public class MyDemoLoggingAspect {
 
             mylogger.warning(throwable.getMessage());
             throw throwable;
-           // result = "Majro error! but no error , helicopeter on teh wya!";
+            // result = "Majro error! but no error , helicopeter on teh wya!";
         }
 
         long end = System.currentTimeMillis();
@@ -87,8 +87,8 @@ public class MyDemoLoggingAspect {
         ConvertFirstToUpperCase(rtnobj);
     }
 
-    @Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()()")
-    public void MyLoggingDemoAdvice(JoinPoint jp) {
+    // @Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()()")
+    public void MyLoggingDemoAdvicex(JoinPoint jp) {
         mylogger.info("\n=====>>@Before advice");
         //show signature
         MethodSignature sign = (MethodSignature) jp.getSignature();
@@ -104,6 +104,18 @@ public class MyDemoLoggingAspect {
                 mylogger.info("Account a.getlevel" + a.getLevel());
             }
         });
+    }
+
+    //@Before("execution(* com.ray.dao.*.Add*())")
+    // @Before("execution(* com.ray.dao.*.Add*(..))")
+    public void beforeAddAccountadvice() {
+        System.out.println("\n===>Executing @Before advice on addAccount");
+    }
+
+    //@Before("execution(* com.ray.dao.*.Add*(*.*.Entity.Account, ..))")
+    @Before("execution(* com.ray.dao.*.*(..))")
+    public void beforeAddAccountwithAccountParamadvice() {
+        System.out.println("\n===>Executing @Before advice with account param on addAccount\n");
     }
 
     public void ConvertFirstToUpperCase(List<Account> acs) {

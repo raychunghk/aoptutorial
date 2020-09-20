@@ -22,9 +22,9 @@ dependencies {
 // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+//    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+//    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-context', version: springVersion
 // https://mvnrepository.com/artifact/org.springframework/spring-webmvc

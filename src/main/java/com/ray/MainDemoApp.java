@@ -18,8 +18,10 @@ public class MainDemoApp {
         //calll business method
         MemberDao m = ctx.getBean(MemberDao.class);
 
-        //d.AddAccount();
-        d.setName ("hello");
+        //   d.AddAccount();
+        d.AddAccount(new Account("sdfsdf", "1"), true);
+        m.AddAccountSSS();//test wild card of point cut expression add*
+        d.setName ("hello");/*
         d.setServicecode("service");
         String name, ser;
         name = d.getName();
@@ -28,6 +30,8 @@ public class MainDemoApp {
         //close the context
         m.gotoSleep();
         d.AddAccount(new Account("sdf", "level1"), true);
+
+        */
         ctx.close();
 
     }
