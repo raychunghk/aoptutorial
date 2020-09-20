@@ -21,11 +21,13 @@ public class MainDemoApp {
         //   d.AddAccount();
         d.AddAccount(new Account("sdfsdf", "1"), true);
         m.AddAccountSSS();//test wild card of point cut expression add*
-        d.setName ("hello");/*
+        d.setName ("hello");
         d.setServicecode("service");
+
         String name, ser;
         name = d.getName();
         ser = d.getServicecode();
+           /*
         //d.dowork();
         //close the context
         m.gotoSleep();

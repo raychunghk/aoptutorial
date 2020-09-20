@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 @Aspect
 @Component
-@Order(2)
+@Order(1)
 public class MyDemoLoggingAspect {
     private static Logger mylogger = Logger.getLogger(MyDemoLoggingAspect.class.getName());
 
@@ -87,21 +87,28 @@ public class MyDemoLoggingAspect {
         ConvertFirstToUpperCase(rtnobj);
     }
 
-    // @Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()()")
+    //@Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()()")
+    public void MyLoggingAdviceAllMethodNotGetterSetter() {
+        System.out.println("Point cut test:MyLoggingAdviceAllMethodNotGetterSetter");
+    }
+
+    //@Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()()")
+    @Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()")
     public void MyLoggingDemoAdvicex(JoinPoint jp) {
-        mylogger.info("\n=====>>@Before advice");
+        // mylogger.info("\n=====>>@Before advice");
+        System.out.println("\n=====>>@Before advice");
         //show signature
         MethodSignature sign = (MethodSignature) jp.getSignature();
-        mylogger.info("intercepting method(signature):" + sign.getName());
+        System.out.println("intercepting method(signature):" + sign);
         //desplay method argements
         Object[] objs = jp.getArgs();
 
         Arrays.stream(objs).forEach((x) -> {
-            mylogger.info("Arguments" + x);
+            mylogger.info("Arguments:" + x);
             if (x instanceof Account) {
                 Account a = (Account) x;
-                mylogger.info("Account a.getnmae" + a.getName());
-                mylogger.info("Account a.getlevel" + a.getLevel());
+                System.out.println("Account a.getnmae:" + a.getName());
+                System.out.println("Account a.getlevel:" + a.getLevel());
             }
         });
     }
@@ -113,9 +120,19 @@ public class MyDemoLoggingAspect {
     }
 
     //@Before("execution(* com.ray.dao.*.Add*(*.*.Entity.Account, ..))")
-    @Before("execution(* com.ray.dao.*.*(..))")
+//    /@Before("execution(* com.ray.dao.*.*(..))")
     public void beforeAddAccountwithAccountParamadvice() {
         System.out.println("\n===>Executing @Before advice with account param on addAccount\n");
+    }
+
+    //@Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()")
+    public void testCombinepointcut() {
+        System.out.println("==>Test combine point cut;");
+    }
+
+    // @Before("com.ray.aspect.AOPExpressions.AllActionNotGetterandSetter()")
+    public void testAnalystAPI() {
+        System.out.println("==>Order(2)Test combine point cut; perform API analyst : ");
     }
 
     public void ConvertFirstToUpperCase(List<Account> acs) {
